@@ -7,6 +7,7 @@ export default class IndexController extends Controller {
 
   emailAddress = '';
   responseMessage = '';
+  headerMessage = 'Coming Soon';
 
   @match('emailAddress', /^.+@.+\..+$/)
   isValid;

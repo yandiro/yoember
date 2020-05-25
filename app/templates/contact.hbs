@@ -1,1 +1,45 @@
 <h1>Contact Page</h1>
+
+<div class="jumbotron">
+  <h1>Send us a message</h1>
+
+  <br /><br />
+
+  <p>We'll get back to you ASAP.</p>
+
+  <form>
+    <div class="form-group has-feedback">
+      <label for="email">Email address</label>
+      <Input type="email" id="email" @value={{this.emailAddress}} class="form-control" placeholder="Please type a fake e-mail address." autofocus="autofocus" />
+
+      {{#if isEmailValid}}
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess2Status" class="sr-only">(success)</span>
+      {{!-- {{else}}
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      <span id="inputError2Status" class="sr-only">(error)</span> --}}
+      {{/if}}
+    </div>
+
+
+    <div class="form-group has-feedback">
+      <label for="textArea">Message</label>
+      {{textarea id="textArea" class="form-control" rows="5" value=message}}
+
+      {{#if isMessageValid}}
+      <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+      <span id="inputSuccess2Status" class="sr-only">(success)</span>
+      {{!-- {{else}}
+      <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+      <span id="inputError2Status" class="sr-only">(error)</span> --}}
+      {{/if}}
+    </div>
+    <button type="submit" class="btn btn-primary" disabled={{isButtonDisabled}} {{action 'sendMessage'}}>Send message</button>
+  </form>
+
+  <br /><br />
+
+  {{#if sendStatus}}
+  <div class="alert alert-success">{{sendStatus}}</div>
+  {{/if}}
+</div>
