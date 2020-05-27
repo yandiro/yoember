@@ -17,10 +17,15 @@ export default class IndexController extends Controller {
 
   @action
   saveInvitation() {
-    alert(`Saving of the following email address is in progress: ${this.emailAddress}`)
 
-    this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}`);
-    this.set('emailAddress', '');
+    const email = this.emailAddress;
+
+    const newInvitation = this.store.createRecord('invitation', { email });
+    newInvitation.save()
+    .then(() => {
+      this.set('responseMessage', `Thank you! We've just saved your email address: ${this.get('emailAddress')}`);
+      this.set('emailAddress', '');
+    })
   }
 
 }
