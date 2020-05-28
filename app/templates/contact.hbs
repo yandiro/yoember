@@ -10,7 +10,7 @@
   <form>
     <div class="form-group has-feedback">
       <label for="email">Email address</label>
-      <Input type="email" id="email" @value={{this.emailAddress}} class="form-control" placeholder="Please type a fake e-mail address." autofocus="autofocus" />
+      <Input type="email" id="email" @value={{this.model.email}} class="form-control" placeholder="Please type a fake e-mail address." autofocus="autofocus" />
 
       {{#if isEmailValid}}
       <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
@@ -24,7 +24,7 @@
 
     <div class="form-group has-feedback">
       <label for="textArea">Message</label>
-      {{textarea id="textArea" class="form-control" rows="5" value=message}}
+      {{textarea id="textArea" class="form-control" rows="5" value=this.model.message}}
 
       {{#if isMessageValid}}
       <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
@@ -34,7 +34,7 @@
       <span id="inputError2Status" class="sr-only">(error)</span> --}}
       {{/if}}
     </div>
-    <button type="submit" class="btn btn-primary" disabled={{isButtonDisabled}} {{action 'sendMessage'}}>Send message</button>
+    <button type="submit" class="btn btn-primary" disabled={{this.model.isInvalid}} {{action 'sendMessage'}}>Send message</button>
   </form>
 
   <br /><br />
