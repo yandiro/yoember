@@ -5,14 +5,18 @@
     <tr>
       <th>E-mail</th>
       <th>Message</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-  {{#each model as |contact|}}
+    {{#each model as |contact|}}
     <tr>
       <th>{{contact.email}}</th>
       <td>{{contact.message}}</td>
+      <td><a href="#">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true" {{action 'deleteContact' contact}}></span>
+      </a></td>
     </tr>
-  {{/each}}
+    {{/each}}
   </tbody>
 </table>

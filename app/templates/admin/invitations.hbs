@@ -5,14 +5,18 @@
     <tr>
       <th>ID</th>
       <th>E-mail</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-  {{#each model as |invitation|}}
+    {{#each model as |invitation|}}
     <tr>
       <th>{{invitation.id}}</th>
       <td>{{invitation.email}}</td>
+      <td><a href="#">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true" {{action 'deleteInvitation' invitation}}></span>
+      </a></td>
     </tr>
-  {{/each}}
+    {{/each}}
   </tbody>
 </table>
