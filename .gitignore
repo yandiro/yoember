@@ -26,3 +26,9 @@
 
 # .history folder (local history extension)
 .history
+
+# Google firebase local folder
+/.firebase
+.firebase-debug.log
+.firebaserc
+.firebase
