@@ -1,0 +1,23 @@
+<h1>Seeder, our Data Center</h1>
+
+<div class="row">
+  <div class="col-md-4">{{number-box title="Libraries" number=libraries.length}}</div>
+  <div class="col-md-4">{{number-box title="Authors" number=authors.length}}</div>
+  <div class="col-md-4">{{number-box title="Books" number=books.length}}</div>
+</div>
+
+{{seeder-block
+sectionTitle="Authors with Books"
+seederFn=this.seederService.seedRandomAuthorsWithBooks
+destroyerFn=this.seederService.deleteAuthorsAndTheirBooks
+seedingInProgress=this.seederService.seedingAuthorsInProgress
+deletingInProgress=this.seederService.deletingAuthorsInProgress
+}}
+
+{{seeder-block
+sectionTitle="Libraries"
+seederFn=this.seederService.seedRandomLibraries
+destroyerFn=this.seederService.deleteLibraries
+seedingInProgress=this.seederService.seedingLibrariesInProgress
+deletingInProgress=this.seederService.deletingLibrariesInProgress
+}}

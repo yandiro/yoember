@@ -1,11 +1,30 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'library-app',
     environment,
     rootURL: '/',
     locationType: 'auto',
+
+    firebase: {
+      apiKey: "AIzaSyAltDbA0vbd-3dz5YgnP3t5VskMM7lGudQ",
+      authDomain: "mguest-c1557.firebaseapp.com",
+      databaseURL: "https://mguest-c1557.firebaseio.com",
+      projectId: "mguest-c1557",
+      storageBucket: "mguest-c1557.appspot.com",
+      messagingSenderId: "837084793783",
+      appId: "1:837084793783:web:ce91edbbd64faf4a9fb632"
+    },
+
+    // if using ember-cli-content-security-policy
+    contentSecurityPolicy: {
+      'script-src': "'self' 'unsafe-eval' apis.google.com",
+      'frame-src': "'self' https://*.firebaseapp.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com"
+    },
+
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -42,9 +61,12 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
   }
+    
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV['ember-faker'] = {
+      enabled: true
+    };
   }
 
   return ENV;

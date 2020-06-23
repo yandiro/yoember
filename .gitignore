@@ -23,3 +23,12 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+
+# .history folder (local history extension)
+.history
+
+# Google firebase local folder
+/.firebase
+.firebase-debug.log
+.firebaserc
+.firebase
