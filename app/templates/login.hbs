@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-12 col-md-6 col-md-offset-3">
+    <form class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+      {{#if loginFailed}}
+      <div class="alert alert-danger">Invalid login information. Please try again.</div>
+      {{/if}}
+
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <Input id="inputEmail" @type="text" @value={{this.model.email}} class="form-control" placeholder="Email address" required autofocus />
+
+      <label for="inputPassword" class="sr-only">Password</label>
+      <Input id="inputPassword" @type="password" @value={{this.model.password}} class="form-control mt-1" placeholder="Password" required />
+
+      <div class="mt-3">
+        <button class="btn btn-lg btn-primary btn-block" type="submit" {{action "signIn"}} disabled={{this.model.isNotValid}}>{{this.buttonLabel}}</button>
+      </div>
+    </form>
+
+  </div>
+</div>
